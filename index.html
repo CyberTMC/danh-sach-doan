@@ -3,7 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
-    <title>Hệ thống thu thập thông tin</title>
+    
+    <!-- ===== TITLE & DESCRIPTION CHO PREVIEW KHI CHIA SẺ LINK ===== -->
+    <title>ĐOÀN VIÊN 12A2 | Nhập thông tin nhanh</title>
+    <meta name="description" content="📝 Nhập thông tin ở đây • Không cần gửi tin nhắn • Click vào link để điền hồ sơ đoàn viên">
+    
+    <!-- ===== OPEN GRAPH (Facebook, Messenger, Zalo) ===== -->
+    <meta property="og:title" content="📋 ĐOÀN VIÊN 12A2 - NHẬP THÔNG TIN">
+    <meta property="og:description" content="✅ Nhập thông tin trực tiếp tại đây • Không cần gửi tin nhắn • Chỉ cần điền form và gửi">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="">
+    <meta property="og:image" content="https://img.icons8.com/fluency/96/id-card.png">
+    <meta property="og:image:alt" content="Nhập thông tin đoàn viên">
+    <meta property="og:site_name" content="Hệ thống thu thập thông tin">
+    
+    <!-- ===== TWITTER CARD ===== -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="📝 ĐOÀN VIÊN 12A2 - Nhập thông tin tại đây">
+    <meta name="twitter:description" content="Không cần gửi tin nhắn • Click link để điền hồ sơ">
+    <meta name="twitter:image" content="https://img.icons8.com/fluency/96/id-card.png">
+    
+    <!-- ===== THẺ BỔ SUNG GIÚP PREVIEW ĐẸP HƠN ===== -->
+    <meta property="og:locale" content="vi_VN">
+    <meta name="robots" content="index, follow">
+    
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
     <style>
         * {
@@ -24,7 +47,6 @@
             position: relative;
         }
 
-        /* Nền trừu tượng nghiêm túc, tối giản */
         body::before {
             content: "";
             position: fixed;
@@ -39,7 +61,6 @@
             z-index: 0;
         }
 
-        /* Card chính: bỏ hiệu ứng lấp lánh -> phong cách corporate, sắc nét */
         .serious-card {
             position: relative;
             z-index: 10;
@@ -69,7 +90,6 @@
             transform: translateY(-2px);
         }
 
-        /* Header: tone xám chuyên nghiệp, không vàng bóng */
         .corporate-header {
             background: #1e2a3e;
             background: linear-gradient(115deg, #1a2a3f 0%, #0f1a27 100%);
@@ -121,7 +141,6 @@
             color: #8ba3c7;
         }
 
-        /* Form section */
         .form-section {
             padding: 2rem 2rem 2.2rem;
             background: #ffffff;
@@ -189,7 +208,6 @@
             pointer-events: none;
         }
 
-        /* Nút submit: sắc xanh thép, không rườm rà */
         .btn-submit-serious {
             background: #2c3e66;
             background: linear-gradient(95deg, #1f3a5f 0%, #2b4c7c 100%);
@@ -230,7 +248,6 @@
             box-shadow: none;
         }
 
-        /* thông báo thành công nghiêm túc */
         .status-notification {
             background: #e6f7ef;
             border-left: 5px solid #2e7d64;
@@ -257,12 +274,21 @@
             transform: scale(1);
         }
 
-        /* micro spacing và clean */
-        hr {
-            margin: 0.75rem 0;
-            border: 0;
-            height: 1px;
-            background: linear-gradient(to right, #e2e8f0, transparent);
+        /* BANNER NHỎ NHẮC NHỞ - CHỈ HIỂN THỊ TRONG TRANG */
+        .reminder-banner {
+            background: #f0f4ff;
+            border-radius: 14px;
+            padding: 0.7rem 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 0.85rem;
+            color: #1e40af;
+            border: 1px solid #c7d2fe;
+        }
+        .reminder-banner i {
+            font-size: 1.2rem;
         }
 
         @media (max-width: 560px) {
@@ -292,7 +318,7 @@
             <i class="fas fa-id-card"></i>
         </div>
         <h2>HỒ SƠ ĐOÀN VIÊN 12A2</h2>
-        <p>Vui lòng nhập chính xác thông tin !</p>
+        <p>Vui lòng nhập chính xác thông tin</p>
         <div class="header-meta">
             <span><i class="fas fa-check-circle"></i> Bảo mật thông tin</span>
             <span><i class="fas fa-database"></i> Đồng bộ trung tâm</span>
@@ -300,43 +326,43 @@
     </div>
 
     <div class="form-section">
+        <!-- BANNER HƯỚNG DẪN NGẮN GỌN -->
+        <div class="reminder-banner">
+            <i class="fas fa-info-circle"></i>
+            <span><strong>📌 Hướng dẫn:</strong> Nhập thông tin vào form bên dưới ✅ Không cần gửi tin nhắn riêng.</span>
+        </div>
+
         <form id="officialForm">
-            <!-- Họ và tên -->
             <div class="input-fieldset">
                 <label><i class="fas fa-user-pen"></i> Họ và tên</label>
                 <i class="fas fa-user input-icon-line"></i>
                 <input type="text" class="modern-input" name="hoTen" placeholder="Nguyễn Văn An" required autocomplete="off">
             </div>
 
-            <!-- Ngày sinh -->
             <div class="input-fieldset">
                 <label><i class="fas fa-calendar-week"></i> Ngày tháng năm sinh</label>
                 <i class="fas fa-cake-candles input-icon-line"></i>
                 <input type="text" class="modern-input" name="ngaySinh" placeholder="VD: 15/10/2008" required>
             </div>
 
-            <!-- Chi đoàn (readonly) -->
             <div class="input-fieldset">
                 <label><i class="fas fa-flag"></i> Chi đoàn (Chính thức)</label>
                 <i class="fas fa-layer-group input-icon-line"></i>
                 <input type="text" class="modern-input" name="chiDoan" value="12A2" readonly>
             </div>
 
-            <!-- Khu / Thôn -->
             <div class="input-fieldset">
                 <label><i class="fas fa-leaf"></i> Khu / Thôn</label>
                 <i class="fas fa-location-dot input-icon-line"></i>
                 <input type="text" class="modern-input" name="khuThon" placeholder="VD: Hòa Đình, Khu 4" required>
             </div>
 
-            <!-- Xã / Phường -->
             <div class="input-fieldset">
                 <label><i class="fas fa-map"></i> Xã / Phường</label>
                 <i class="fas fa-map-pin input-icon-line"></i>
                 <input type="text" class="modern-input" name="xaPhuong" placeholder="VD: Võ Cường" required>
             </div>
 
-            <!-- Huyện / Tỉnh -->
             <div class="input-fieldset">
                 <label><i class="fas fa-building"></i> Quận / Huyện / Tỉnh</label>
                 <i class="fas fa-city input-icon-line"></i>
@@ -355,79 +381,24 @@
 </div>
 
 <script>
-    // === BẢO TOÀN FETCH URL CỐT LÕI, CHỈ THAY ĐỔI MÀU SẮC VÀ GIAO DIỆN NGHIÊM TÚC ===
-    // URL gốc từ yêu cầu không thay đổi, đảm bảo chức năng submit hoàn toàn giữ nguyên
     const SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbwMphFWGZavaqtzwiEYBQEB_Y6nnwyMiG2uGBGwA1Lsj-kfeW_MCvaEQQAXhFe-Qc16aQ/exec';
     const formEl = document.getElementById('officialForm');
     const submitButton = document.getElementById('submitSeriousBtn');
     const successToast = document.getElementById('successToast');
 
-    // Helper: reset form sau khi submit thành công nhưng giữ readonly giá trị mặc định
     function resetFormKeepChiDoan() {
         formEl.reset();
         const chiDoanField = formEl.querySelector('input[name="chiDoan"]');
         if (chiDoanField) chiDoanField.value = "12A2";
-        // Không làm mất placeholder hay yêu cầu nhập lại, tất cả các trường khác sẽ rỗng theo reset
     }
 
-    // Xử lý sự kiện submit – tuân thủ hoàn toàn nguyên lý gửi đi, chỉ cải thiện trải nghiệm
-    formEl.addEventListener('submit', (e) => {
+    // Kiểm tra validation trước khi submit (tránh gửi khi thiếu dữ liệu)
+    function validateAndSubmit(e) {
         e.preventDefault();
-
-        // Hiệu ứng loading: nút bị vô hiệu hóa, thay đổi nội dung
-        submitButton.disabled = true;
-        submitButton.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ĐANG ĐỒNG BỘ...';
-
-        const formData = new FormData(formEl);
-
-        fetch(SCRIPT_URL, {
-            method: 'POST',
-            body: formData,
-            mode: 'no-cors',      // vẫn giữ giống với môi trường hoạt động thực tế, đảm bảo không lỗi CORS với google script
-        })
-        .then(() => {
-            // Do mode no-cors, response thường là opaque nhưng vẫn gửi thành công, coi như thành công
-            // Hiển thị thông báo thành công
-            successToast.classList.add('show');
-            resetFormKeepChiDoan();
-
-            // Ẩn thông báo sau 5 giây
-            setTimeout(() => {
-                successToast.classList.remove('show');
-            }, 5000);
-        })
-        .catch((error) => {
-            console.error('Lỗi kết nối hoặc gửi:', error);
-            alert("⚠️ Lỗi hệ thống mạng hoặc máy chủ. Vui lòng kiểm tra kết nối và thử lại sau.");
-        })
-        .finally(() => {
-            // Khôi phục trạng thái nút
-            submitButton.disabled = false;
-            submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> XÁC NHẬN & GỬI DỮ LIỆU';
-        });
-    });
-
-    // Đảm bảo sau khi tải trang, trường Chi Đoàn luôn là 12A2 (dự phòng nếu có can thiệp)
-    window.addEventListener('DOMContentLoaded', () => {
-        const fixedChiDoan = formEl.querySelector('input[name="chiDoan"]');
-        if (fixedChiDoan && fixedChiDoan.value !== "12A2") {
-            fixedChiDoan.value = "12A2";
-        }
         
-        // Thêm hiệu ứng focus tinh tế cho input (tính năng phụ)
-        const allInputsModern = document.querySelectorAll('.modern-input');
-        allInputsModern.forEach(input => {
-            input.addEventListener('focus', function(e) {
-                this.parentElement.style.transition = 'all 0.1s';
-            });
-        });
-    });
-
-    // Bổ sung xác thực nhẹ: không cho phép gửi nếu các trường bắt buộc bị bỏ trống (HTML5 required đã hoạt động, nhưng thêm nâng cao)
-    // Thêm kiểm tra tùy chọn trước khi fetch: hiển thị lỗi cục bộ nếu cần nhưng không ảnh hưởng đến gửi đi
-    const requiredFields = ['hoTen', 'ngaySinh', 'khuThon', 'xaPhuong', 'huyenTinh'];
-    formEl.addEventListener('submit', (e) => {
+        const requiredFields = ['hoTen', 'ngaySinh', 'khuThon', 'xaPhuong', 'huyenTinh'];
         let isValid = true;
+        
         for (let fieldName of requiredFields) {
             const field = formEl.querySelector(`[name="${fieldName}"]`);
             if (field && !field.value.trim()) {
@@ -440,15 +411,53 @@
                 field.style.borderColor = "#e2e8f0";
             }
         }
+        
         if (!isValid) {
-            e.preventDefault();
-            alert("Vui lòng điền đầy đủ thông tin bắt buộc trước khi gửi.");
+            alert("⚠️ Vui lòng điền đầy đủ thông tin bắt buộc trước khi gửi.");
+            return;
+        }
+
+        // Submit thật sự
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> ĐANG ĐỒNG BỘ...';
+
+        const formData = new FormData(formEl);
+
+        fetch(SCRIPT_URL, {
+            method: 'POST',
+            body: formData,
+            mode: 'no-cors',
+        })
+        .then(() => {
+            successToast.classList.add('show');
+            resetFormKeepChiDoan();
+            setTimeout(() => {
+                successToast.classList.remove('show');
+            }, 5000);
+        })
+        .catch((error) => {
+            console.error('Lỗi kết nối:', error);
+            alert("⚠️ Lỗi kết nối mạng. Vui lòng kiểm tra lại và thử lại.");
+        })
+        .finally(() => {
             submitButton.disabled = false;
             submitButton.innerHTML = '<i class="fas fa-paper-plane"></i> XÁC NHẬN & GỬI DỮ LIỆU';
-            return false;
+        });
+    }
+
+    formEl.addEventListener('submit', validateAndSubmit);
+
+    window.addEventListener('DOMContentLoaded', () => {
+        const fixedChiDoan = formEl.querySelector('input[name="chiDoan"]');
+        if (fixedChiDoan && fixedChiDoan.value !== "12A2") {
+            fixedChiDoan.value = "12A2";
         }
-        // Cho phép submit chạy tiếp
-        return true;
+        
+        // Cập nhật URL động cho thẻ og:url
+        const metaOgUrl = document.querySelector('meta[property="og:url"]');
+        if (metaOgUrl && window.location.href) {
+            metaOgUrl.setAttribute('content', window.location.href);
+        }
     });
 </script>
 </body>
