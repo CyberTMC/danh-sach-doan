@@ -274,7 +274,6 @@
             transform: scale(1);
         }
 
-        /* BANNER NHỎ NHẮC NHỞ - CHỈ HIỂN THỊ TRONG TRANG */
         .reminder-banner {
             background: #f0f4ff;
             border-radius: 14px;
@@ -326,7 +325,6 @@
     </div>
 
     <div class="form-section">
-        <!-- BANNER HƯỚNG DẪN NGẮN GỌN -->
         <div class="reminder-banner">
             <i class="fas fa-info-circle"></i>
             <span><strong>📌 Hướng dẫn:</strong> Nhập thông tin vào form bên dưới ✅ Không cần gửi tin nhắn riêng.</span>
@@ -363,10 +361,11 @@
                 <input type="text" class="modern-input" name="xaPhuong" placeholder="VD: Võ Cường" required>
             </div>
 
+            <!-- ===== TRƯỜNG QUẬN/HUYỆN/TỈNH: KHÓA, MẶC ĐỊNH BẮC NINH ===== -->
             <div class="input-fieldset">
                 <label><i class="fas fa-building"></i> Quận / Huyện / Tỉnh</label>
                 <i class="fas fa-city input-icon-line"></i>
-                <input type="text" class="modern-input" name="huyenTinh" placeholder="VD: Bắc Ninh" required>
+                <input type="text" class="modern-input" name="huyenTinh" value="Bắc Ninh" readonly>
             </div>
 
             <button type="submit" id="submitSeriousBtn" class="btn-submit-serious">
@@ -386,17 +385,21 @@
     const submitButton = document.getElementById('submitSeriousBtn');
     const successToast = document.getElementById('successToast');
 
-    function resetFormKeepChiDoan() {
+    function resetFormKeepFixedValues() {
         formEl.reset();
+        // Khôi phục các trường readonly sau reset
         const chiDoanField = formEl.querySelector('input[name="chiDoan"]');
         if (chiDoanField) chiDoanField.value = "12A2";
+        
+        const huyenTinhField = formEl.querySelector('input[name="huyenTinh"]');
+        if (huyenTinhField) huyenTinhField.value = "Bắc Ninh";
     }
 
-    // Kiểm tra validation trước khi submit (tránh gửi khi thiếu dữ liệu)
+    // Kiểm tra validation trước khi submit
     function validateAndSubmit(e) {
         e.preventDefault();
         
-        const requiredFields = ['hoTen', 'ngaySinh', 'khuThon', 'xaPhuong', 'huyenTinh'];
+        const requiredFields = ['hoTen', 'ngaySinh', 'khuThon', 'xaPhuong'];
         let isValid = true;
         
         for (let fieldName of requiredFields) {
@@ -430,7 +433,7 @@
         })
         .then(() => {
             successToast.classList.add('show');
-            resetFormKeepChiDoan();
+            resetFormKeepFixedValues();
             setTimeout(() => {
                 successToast.classList.remove('show');
             }, 5000);
@@ -448,9 +451,15 @@
     formEl.addEventListener('submit', validateAndSubmit);
 
     window.addEventListener('DOMContentLoaded', () => {
-        const fixedChiDoan = formEl.querySelector('input[name="chiDoan"]');
-        if (fixedChiDoan && fixedChiDoan.value !== "12A2") {
-            fixedChiDoan.value = "12A2";
+        // Đảm bảo các trường readonly có giá trị đúng
+        const chiDoanField = formEl.querySelector('input[name="chiDoan"]');
+        if (chiDoanField && chiDoanField.value !== "12A2") {
+            chiDoanField.value = "12A2";
+        }
+        
+        const huyenTinhField = formEl.querySelector('input[name="huyenTinh"]');
+        if (huyenTinhField && huyenTinhField.value !== "Bắc Ninh") {
+            huyenTinhField.value = "Bắc Ninh";
         }
         
         // Cập nhật URL động cho thẻ og:url
